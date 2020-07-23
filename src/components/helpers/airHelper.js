@@ -37,11 +37,11 @@ export default function AirHelper(props) {
         </div>
         <div className="content-data">
           <FontAwesomeIcon icon="tree" className="weather-icons tree-icon" />
-          Tree Polen (0-4 level) : {props.pollen_tree}
+          Tree Pollen level (0-4) : {props.pollen_tree}
         </div>
         <div className="content-data">
           <FontAwesomeIcon icon="tree" className="weather-icons tree-icon" />
-          Pollen Grass (0-4 level) : {props.pollen_grass}
+          Grass Pollen level (0-4) : {props.pollen_grass}
         </div>
       </div>
     </div>
