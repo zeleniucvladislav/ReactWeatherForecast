@@ -9,7 +9,30 @@ export default function AirHelper(props) {
       <div className="content"></div>
       <div className="content-left-col">
         <FontAwesomeIcon icon="cloud" className="air-quality-icon" />
-        <div className="content-description">Air quality index {props.aqi}</div>
+        <div className="content-description">
+          Air quality index{" "}
+          <span
+            style={{
+              color: `${
+                props.aqi <= 50
+                  ? "green"
+                  : props.aqi <= 100
+                  ? "yellow"
+                  : props.aqi <= 150
+                  ? "orange"
+                  : props.aqi <= 200
+                  ? "red"
+                  : props.aqi <= 300
+                  ? "purple"
+                  : props.aqi <= 500
+                  ? "maroon"
+                  : "black"
+              }`,
+            }}
+          >
+            {props.aqi}
+          </span>
+        </div>
         <div className="content-data">
           <FontAwesomeIcon
             icon="calendar-day"
@@ -37,11 +60,13 @@ export default function AirHelper(props) {
         </div>
         <div className="content-data">
           <FontAwesomeIcon icon="tree" className="weather-icons tree-icon" />
-          Tree Pollen level (0-4) : {props.pollen_tree}
+          Tree Pollen level (0-4) :{" "}
+          {props.pollen_tree === null ? 0 : props.pollen_tree}
         </div>
         <div className="content-data">
           <FontAwesomeIcon icon="tree" className="weather-icons tree-icon" />
-          Grass Pollen level (0-4) : {props.pollen_grass}
+          Grass Pollen level (0-4) :{" "}
+          {props.pollen_grass === null ? 0 : props.pollen_grass}
         </div>
       </div>
     </div>
