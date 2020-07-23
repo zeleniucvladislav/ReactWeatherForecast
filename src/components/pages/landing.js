@@ -12,9 +12,26 @@ export default function Landing() {
         <div className="landing-text">
           This page uses weatherbit.io public api to get weather data
         </div>
-        <Link to="section2" spy={true} smooth={true} offset={0} duration={1000}>
-          <button className="landing-btn">Weather Forecast</button>
-        </Link>
+        <div className="nav-buttons">
+          <Link
+            to="section2"
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={1000}
+          >
+            <button className="landing-btn">Weather Forecast</button>
+          </Link>
+          <Link
+            to="section3"
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={1000}
+          >
+            <button className="landing-btn">Air Quality</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

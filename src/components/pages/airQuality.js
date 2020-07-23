@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherHelper from "../helpers/weatherHelper";
+import AirHelper from "../helpers/airHelper";
 
-export default function ForecastW() {
+export default function AirQuality() {
   const [error, setError] = useState(null);
-  const [weatherForecast, setWeather] = useState([]);
+  const [airQuality, setQuality] = useState([]);
   const [city, setCity] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     setError(null);
     axios
       .get(
-        `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${process.env.REACT_APP_API_KEY}`
+        `https://api.weatherbit.io/v2.0/current/airquality?city=${city}&key=${process.env.REACT_APP_API_KEY}`
       )
       .then((res) => {
         res.data.city_name
-          ? setWeather(res.data)
+          ? setQuality(res.data)
           : setError("Incorrect city or unsupported one");
+        console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -26,10 +27,9 @@ export default function ForecastW() {
   const handleSearch = (event) => {
     setCity(event.target.value);
   };
-
   return (
     <>
-      <div className="page-name">16 Day Weather Forecast</div>
+      <div className="page-name">Air Quality</div>
       <form onSubmit={handleSubmit} className="weather-search-wrapper">
         <input
           onChange={handleSearch}
@@ -42,24 +42,21 @@ export default function ForecastW() {
           Search
         </button>
       </form>
-      <div className="city-text">
-        {error ? error : weatherForecast.city_name}
-      </div>
-      <div className="container">
-        {weatherForecast.city_name
-          ? weatherForecast.data.map((item, index) => {
+      <div className="city-text">{error ? error : airQuality.city_name}</div>
+      <div className="about-container">
+        {airQuality.city_name
+          ? airQuality.data.map((item, index) => {
               return (
-                <WeatherHelper
+                <AirHelper
                   key={index}
                   index={index}
-                  weather_icon={item.weather.icon}
-                  weather_description={item.weather.description}
-                  valid_date={item.valid_date}
-                  wind_spd={item.wind_spd}
-                  temp={item.temp}
-                  min_temp={item.min_temp}
-                  max_temp={item.max_temp}
-                  pop={item.pop}
+                  aqi={item.aqi}
+                  o3={item.o3}
+                  so2={item.so2}
+                  no2={item.no2}
+                  co={item.co}
+                  pollen_tree={item.pollen_level_tree}
+                  pollen_grass={item.pollen_level_grass}
                 />
               );
             })

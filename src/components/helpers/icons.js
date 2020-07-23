@@ -6,6 +6,9 @@ import {
   faSearch,
   faTint,
   faCalendarDay,
+  faCloud,
+  faAtom,
+  faTree,
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -17,7 +20,10 @@ const Icons = () => {
     faWind,
     faSearch,
     faTint,
-    faCalendarDay
+    faCalendarDay,
+    faCloud,
+    faAtom,
+    faTree
   );
 };
 

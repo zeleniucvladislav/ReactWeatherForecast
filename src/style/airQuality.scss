@@ -1,0 +1,50 @@
+.air-quality-icon {
+  font-size: 7rem;
+  color: $blue;
+}
+.about-container {
+  display: grid;
+  justify-items: center;
+  padding-top: 5rem;
+}
+.about-box {
+  width: 600px;
+  position: relative;
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fafafa;
+  border-radius: 2px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  padding: 10rem;
+  @media (min-width: 769px) and (max-width: 1200px) {
+    width: 400px;
+    padding: 5rem;
+  }
+  @media (max-width: 768px) {
+    width: 200px;
+    padding: 5rem 1rem;
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+    padding: 5rem;
+  }
+}
+.about-box:before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  z-index: -1;
+  transform: skew(2deg, 2deg);
+  background: linear-gradient(315deg, $blue, $light-blue);
+}
+.atom-icon {
+  color: $blue;
+}
+.tree-icon {
+  color: #006600;
+}

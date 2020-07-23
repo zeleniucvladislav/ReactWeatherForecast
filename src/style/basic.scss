@@ -1,7 +1,7 @@
 html {
   font-size: 62.5%; // 1rem is 10px
   animation-name: fade;
-  animation-duration: 2s;
+  animation-duration: 1.6s;
 }
 
 body {
@@ -23,4 +23,8 @@ body {
   100% {
     opacity: 100;
   }
+}
+#section2,
+#section3 {
+  min-height: 100vh;
 }

@@ -3,7 +3,7 @@
   justify-items: center;
   padding: 5rem 0rem;
   font-size: 4rem;
-  color: #324e7b;
+  color: $dark-blue;
   @media (max-width: 550px) {
     font-size: 3rem;
   }
@@ -25,20 +25,20 @@
 .weather-search-wrapper input {
   width: 20rem;
   @extend %search;
-  border: 1px solid #5068a9;
+  border: 1px solid $blue;
   &:focus {
-    border-bottom: 2px solid #324e7b;
+    border-bottom: 2px solid $dark-blue;
   }
 }
 .search-button {
   @extend %search;
   width: 9rem;
-  background-color: #5068a9;
+  background-color: $blue;
   color: white;
   border: none;
   cursor: pointer;
   &:hover {
-    background-color: #324e7b;
+    background-color: $dark-blue;
   }
 }
 .city-text {
@@ -46,7 +46,7 @@
   justify-items: center;
   padding-top: 5rem;
   font-size: 3rem;
-  color: #324e7b;
+  color: $dark-blue;
   @media (max-width: 550px) {
     font-size: 2.5rem;
   }
@@ -93,7 +93,7 @@
   right: -2px;
   z-index: -1;
   transform: skew(2deg, 2deg);
-  background: linear-gradient(315deg, #5068a9, #86a6df);
+  background: linear-gradient(315deg, $blue, $light-blue);
 }
 
 .content {
@@ -106,7 +106,7 @@
   margin: 0;
   padding: 0;
   font-size: 4rem;
-  color: #324e7b;
+  color: $dark-blue;
   transition: 0.5s;
 }
 .content-left-col {
@@ -114,8 +114,11 @@
   display: grid;
   gap: 1rem;
   justify-items: center;
-  @media (max-width: 1000px) {
+  @media (min-width: 551px) and (max-width: 1200px) {
     padding-right: 3rem;
+  }
+  @media (max-width: 550px) {
+    padding-right: 0rem;
   }
 }
 .content-description {
@@ -133,11 +136,11 @@
   font-size: 1.5rem;
 }
 .calendar-icon {
-  color: #324e7b;
+  color: $dark-blue;
 }
 .wind-icon,
 .temperature-low {
-  color: #86a6df;
+  color: $light-blue;
 }
 .temperature-avg {
   color: #ffb833;
@@ -146,7 +149,7 @@
   color: #cc0000;
 }
 .tint-icon {
-  color: #5068a9;
+  color: $blue;
 }
 .content-right-col {
   display: grid;

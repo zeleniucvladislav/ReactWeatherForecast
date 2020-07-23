@@ -36,9 +36,19 @@
     font-size: 1.5rem;
   }
 }
+.nav-buttons {
+  display: grid;
+  grid-template-columns: 20rem 20rem;
+  gap: 5rem;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+  }
+}
 .landing-btn {
   width: 20rem;
-  background-color: #5068a9;
+  background-color: $blue;
   color: white;
   border: none;
   outline: none;
@@ -48,7 +58,7 @@
   transition: 0.5s ease-in-out;
   cursor: pointer;
   &:hover {
-    background-color: #324e7b;
+    background-color: $dark-blue;
   }
   @media (max-width: 660px) {
     font-size: 1.4em;
