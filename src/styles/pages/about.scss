@@ -1,11 +1,7 @@
 .about-wrapper {
   background: $dark-blue;
-  padding: 5rem 30rem;
+  padding: 5rem calc(3rem + 4vw);
   color: white;
   font-size: 1.5rem;
   text-align: justify;
-  margin: 10rem 0rem;
-  @media (max-width: 1200px) {
-    padding: 5rem 7rem;
-  }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherHelper from "../helpers/weatherHelper";
+import moment from "moment";
 
 export default function ForecastW() {
   const [error, setError] = useState(null);
@@ -19,16 +20,16 @@ export default function ForecastW() {
           : setError("Incorrect city or unsupported one");
       })
       .catch((error) => {
+        setError("An error happened while requesting data");
         console.log(error);
       });
   };
-
   const handleSearch = (event) => {
     setCity(event.target.value);
   };
 
   return (
-    <>
+    <div className="forecast-container">
       <div className="page-name">16 Day Weather Forecast</div>
       <form onSubmit={handleSubmit} className="weather-search-wrapper">
         <input
@@ -46,25 +47,24 @@ export default function ForecastW() {
         {error ? error : weatherForecast.city_name}
       </div>
       <div className="container">
-        {weatherForecast.city_name
-          ? weatherForecast.data.map((item, index) => {
-              return (
-                <WeatherHelper
-                  key={index}
-                  index={index}
-                  weather_icon={item.weather.icon}
-                  weather_description={item.weather.description}
-                  valid_date={item.valid_date}
-                  wind_spd={item.wind_spd}
-                  temp={item.temp}
-                  min_temp={item.min_temp}
-                  max_temp={item.max_temp}
-                  pop={item.pop}
-                />
-              );
-            })
-          : null}
+        {weatherForecast.city_name &&
+          weatherForecast.data.map((item, index) => {
+            return (
+              <WeatherHelper
+                key={index}
+                index={index}
+                weather_icon={item.weather.icon}
+                weather_description={item.weather.description}
+                date={moment(item.valid_date).format("Do MMMM YYYY")}
+                wind_spd={item.wind_spd}
+                temp={item.temp}
+                min_temp={item.min_temp}
+                max_temp={item.max_temp}
+                pop={item.pop}
+              />
+            );
+          })}
       </div>
-    </>
+    </div>
   );
 }

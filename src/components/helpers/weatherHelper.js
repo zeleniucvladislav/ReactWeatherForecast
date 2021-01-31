@@ -5,7 +5,6 @@ import Images from "./images";
 export default function WeatherHelper(props) {
   return (
     <div className="box">
-      <div className="content"></div>
       <div className="content-index">Day {props.index + 1}</div>
       <div className="content-left-col">
         <Images icon={props.weather_icon} />
@@ -15,7 +14,7 @@ export default function WeatherHelper(props) {
             icon="calendar-day"
             className="weather-icons calendar-icon"
           />
-          {props.valid_date}
+          {props.date}
         </div>
       </div>
       <div className="content-right-col">
